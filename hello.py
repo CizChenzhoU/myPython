@@ -68,5 +68,6 @@ L=[['Apple','Google','Microsoft'],['JAVA','Python','Ruby','PHP'],['Adam','Bart',
 print('打印Apple:'+L[0][0])
 print('打印Lisa:'+L[2][2])
 print('打印Python:'+L[1][1])
+print('my debug')
 
 
