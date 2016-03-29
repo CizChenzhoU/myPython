@@ -63,11 +63,63 @@
 # #要拿到php可以写p[1]或者z[2][1]
 # print(z[2][1])
 
-L=[['Apple','Google','Microsoft'],['JAVA','Python','Ruby','PHP'],['Adam','Bart','Lisa']]
+# L=[['Apple','Google','Microsoft'],['JAVA','Python','Ruby','PHP'],['Adam','Bart','Lisa']]
+# print('打印Apple:'+L[0][0])
+# print('打印Lisa:'+L[2][2])
+# print('打印Python:'+L[1][1])
 
-print('打印Apple:'+L[0][0])
-print('打印Lisa:'+L[2][2])
-print('打印Python:'+L[1][1])
-print('my debug')
+# print('my debug')
+
+# age =20;
+# if age>=18:
+	# print("your age is",age)
+	# print("adult")
+
+# ageTwo=2	
+# if ageTwo>=18:
+	# print ("your age is",ageTwo)
+	# print("adult")
+# else:
+	# print("your age is",ageTwo)
+	# print("teenager")
+	
+# ageThree=3
+# if 	ageThree>=18:
+	# print("adult")
+# elif ageThree >=6:
+	# print("teenager")
+# else:
+	# print("kid")
+	
+# s=input('birth:')
+# birth=int(s)
+# if birth<2000:
+	# print('00前')
+# else:
+	# print('00后')
+	
+# 小明身高1.75，体重80.5kg。请根据BMI公式（体重除以身高的平方）帮小明计算他的BMI指数，并根据BMI指数：
+
+# 低于18.5：过轻
+# 18.5-25：正常
+# 25-28：过重
+# 28-32：肥胖
+# 高于32：严重肥胖
+height=1.75
+weight=80.5-25
+bmi=weight/height
+print(weight/height)
+print('%.2f'%bmi)#保留2位小数
+if bmi<18.5:
+	print("过轻")
+elif bmi>18.5 and bmi<25:
+	print("正常")
+elif bmi>25 and bmi<28:
+	print("过重")
+elif bmi>28 and bmi<32:
+	print("肥胖")
+elif bmi>32:
+	print("严重肥胖")
+	
 
 
