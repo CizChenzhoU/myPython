@@ -149,7 +149,23 @@
 	# print(sum);
 	# print(n);
 #请利用循环依次对list中的每个名字打印出Hello, xxx!：
- L = ['Bart', 'Lisa', 'Adam']
- for name in L:
-		# print("hello:"+name)
-
+ # L = ['Bart', 'Lisa', 'Adam']
+ # for name in L:
+		# # print("hello:"+name)
+#dict
+d = {'Michael': 95, 'Bob': 75, 'Tracy': 85}
+print(d['Michael'])	
+#  add dict
+d["Lily"]=1
+print(d['Lily'])
+# 判断key是否存在
+print('Lily' in d)
+print('Lisa' in d)	
+#通过get判断key是否存在
+print(d.get('Lily'));
+print(d.get('Lisa'));
+#没有会返回None ,也可指定返回参数例如
+print(d.get('Lisa'),-1)
+#删除一个key
+d.pop('Lily')
+print(d);
