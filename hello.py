@@ -153,19 +153,33 @@
  # for name in L:
 		# # print("hello:"+name)
 #dict
-d = {'Michael': 95, 'Bob': 75, 'Tracy': 85}
-print(d['Michael'])	
-#  add dict
-d["Lily"]=1
-print(d['Lily'])
-# 判断key是否存在
-print('Lily' in d)
-print('Lisa' in d)	
-#通过get判断key是否存在
-print(d.get('Lily'));
-print(d.get('Lisa'));
-#没有会返回None ,也可指定返回参数例如
-print(d.get('Lisa'),-1)
-#删除一个key
-d.pop('Lily')
-print(d);
+# d = {'Michael': 95, 'Bob': 75, 'Tracy': 85}
+# print(d['Michael'])	
+# #  add dict
+# d["Lily"]=1
+# print(d['Lily'])
+# # 判断key是否存在
+# print('Lily' in d)
+# print('Lisa' in d)	
+# #通过get判断key是否存在
+# print(d.get('Lily'));
+# print(d.get('Lisa'));
+# #没有会返回None ,也可指定返回参数例如
+# print(d.get('Lisa'),-1)
+# #删除一个key
+# d.pop('Lily')
+# print(d);
+#求绝对值的函数abs
+#abs(100)
+#求最大值
+#print(max(1,2,3,4,5,6));
+#数据类型转换
+# print(int('123'))
+# print(str(456))
+# print(bool(1))
+# print(bool(''))
+#请利用Python内置的hex()函数把一个整数转换成十六进制表示的字符串：
+# n1 = 255
+# n2 = 1000
+# print(hex(n1))
+# print(hex(n2))
