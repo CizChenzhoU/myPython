@@ -183,3 +183,51 @@
 # n2 = 1000
 # print(hex(n1))
 # print(hex(n2))
+
+
+#定义函数
+# def my_abs(x):
+    # if x>=0:
+        # return x
+    # else:
+        # return -x
+
+# print(my_abs(1))
+# print(my_abs(-2))
+#只允许整数和浮点数
+# def my_abs(x):
+    # if not isinstance(x,(int,float)):
+        # raise TypeError('bad operand type数据类型错误')
+    # if x >= 0:
+        # return x
+    # else:
+        # return -x
+
+# print(my_abs('a'))
+# print(my_abs(-2))
+#返回多个参数
+# import math
+
+# def move(x,y,step,angle=0):
+    # nx=x+step*math.cos(angle)
+    # ny=y-step*math.sin(angle)
+    # return nx,ny
+# x,y=move(100,100,60,math.pi/6)
+# print(x,y)
+#请定义一个函数quadratic(a, b, c)，接收3个参数，返回一元二次方程ax2 + bx + c = 0
+import math
+def quadratic(a,b,c):
+    if a==0:
+        return -c/b
+    elif b*b - 4*a*c<0:
+        return None
+    elif b*b - 4*a*c==0:
+        return -b/(2*a)
+    else:
+        return (-b - math.sqrt(b*b - 4*a*c))/(2*a),(-b + math.sqrt(b*b - 4*a*c))/(2*a)
+
+a=float(input('input a:'))
+b=float(input('input b:'))
+c=float(input('input c:'))
+
+print(quadratic(a,b,c))
