@@ -105,21 +105,51 @@
 # 25-28：过重
 # 28-32：肥胖
 # 高于32：严重肥胖
-height=1.75
-weight=80.5-25
-bmi=weight/height
-print(weight/height)
-print('%.2f'%bmi)#保留2位小数
-if bmi<18.5:
-	print("过轻")
-elif bmi>18.5 and bmi<25:
-	print("正常")
-elif bmi>25 and bmi<28:
-	print("过重")
-elif bmi>28 and bmi<32:
-	print("肥胖")
-elif bmi>32:
-	print("严重肥胖")
+# height=1.75
+# weight=80.5-25
+# bmi=weight/height
+# print(weight/height)
+# print('%.2f'%bmi)#保留2位小数
+# if bmi<18.5:
+	# print("过轻")
+# elif bmi>18.5 and bmi<25:
+	# print("正常")
+# elif bmi>25 and bmi<28:
+	# print("过重")
+# elif bmi>28 and bmi<32:
+	# print("肥胖")
+# elif bmi>32:
+	# print("严重肥胖")
 	
-
+#today 循环
+# # for in
+# names=['a','b','c','d','e']
+# for name in names:
+		# print(name);
+#求和
+# sum=0
+# for x in [1,2,3,4,5,6,7,8,9,10]:
+	# sum=sum+x;
+	# print(sum);
+#函数 range
+#print(list(range(6)));
+#计算0-100之和
+# sum=0
+# for x in range(101):
+		# sum =sum+x;
+		# print(sum);'
+		
+#计算100以内所有奇数之和，可以用while循环实现：		
+		
+# sum=0;
+# n=99;
+# while n>0:
+	# sum=sum+n;
+	# n=n-2;
+	# print(sum);
+	# print(n);
+#请利用循环依次对list中的每个名字打印出Hello, xxx!：
+L = ['Bart', 'Lisa', 'Adam']
+for name in L:
+		print("hello:"+name)
 
