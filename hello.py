@@ -216,32 +216,86 @@
 # print(x,y)
 #请定义一个函数quadratic(a, b, c)，接收3个参数，返回一元二次方程ax2 + bx + c = 0
 #b*b-4*a*c; // 计算根的判别式
-import math
-def quadratic(a,b,c):
-    if a==0:
-        print('1')
-        return -c/b
-    elif b*b - 4*a*c<0:# 无实数解
-        print('2')
-        return None
-    elif b*b - 4*a*c==0:#有二个相等的实数解
-        print('3')
-        return -b/(2*a)
-    else:
-        print('4')
-        return (-b - math.sqrt(b*b - 4*a*c))/(2*a),(-b + math.sqrt(b*b - 4*a*c))/(2*a)#有二个不相等的实数解
+# import math
+# def quadratic(a,b,c):
+    # if a==0:
+        # print('1')
+        # return -c/b
+    # elif b*b - 4*a*c<0:# 无实数解
+        # print('2')
+        # return None
+    # elif b*b - 4*a*c==0:#有二个相等的实数解
+        # print('3')
+        # return -b/(2*a)
+    # else:
+        # print('4')
+        # return (-b - math.sqrt(b*b - 4*a*c))/(2*a),(-b + math.sqrt(b*b - 4*a*c))/(2*a)#有二个不相等的实数解
 
-a=float(input('input a:'))
-b=float(input('input b:'))
-c=float(input('input c:'))
+# a=float(input('input a:'))
+# b=float(input('input b:'))
+# c=float(input('input c:'))
 
-print(quadratic(a,b,c))
-
-
+# print(quadratic(a,b,c))
 
 
+#函数的参数
+#一个计算x2的函数：
 
+# def power(x):
+    # return x * x
 
+# x=int(input('input x:'))
+# print(power(x))
+#如果我们要计算x3怎么办？可以再定义一个power3函数，但是如果要计算x4、x5……怎么办？
+# def power(x, n):
+    # s = 1
+    # while n > 0:
+        # n = n - 1
+        # s = s * x
+        # print(s,'and',x)
+    # return s
+# x=int(input('input x:'))
+# n=int(input('input n:'))
+# print(power(x,n))
+#默认参数
+# def power(x,n=2):
+    # s=1
+    # while n > 0:
+        # n = n-1
+        # s = s * x
+        # print(n,'me')
+    # return s
+# x = int(input('input x:'))
+#n = int(input('input n:'))
+# print(power(x,1))
+#可变参数
+#以数学题为例子，给定一组数字a，b，c……，请计算a2 + b2 + c2 + ……。
+#参数个数不确定，我们首先想到可以把a，b，c……作为一个list或tuple传进来，这样，函数可以定义如下：
+# def calc(numbers):
+    # sum = 0
+    # for n in numbers:
+        # sum = sum + n * n
+        # print(sum,'n is',n)
+    # return sum
+# a = int(input('input a'))
+# b = int(input('input b'))
+# c = int(input('input c'))
+# print(calc([a,b,c,4]))
+#定义可变参数和定义一个list或tuple参数相比，仅仅在参数前面加了一个*号。
+#在函数内部，参数numbers接收到的是一个tuple，因此，函数代码完全不变。但是，调用该函数时，可以传入任意个参数，包括0个参数：
+# def calc(*numbers):
+    # sum=0
+    # for n in numbers:
+        # sum=sum+n*n
+    # return sum
+#print(calc(1,2,3,4,5))
+#如果已经有一个list或者tuple，要调用一个可变参数怎么办？可以这样做：
+# number=[1,2,3,4]
+# print(calc(number[0],number[1],number[2],number[3]));
+#也可以这样写
+#*number表示把nums这个list的所有元素作为可变参数传进去。这种写法相当有用，而且很常见
+# print(calc(*number))
+#关键字参数
 
 
 
