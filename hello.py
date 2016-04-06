@@ -215,22 +215,27 @@
 # x,y=move(100,100,60,math.pi/6)
 # print(x,y)
 #请定义一个函数quadratic(a, b, c)，接收3个参数，返回一元二次方程ax2 + bx + c = 0
-# import math
-# def quadratic(a,b,c):
-    # if a==0:
-        # return -c/b
-    # elif b*b - 4*a*c<0:
-        # return None
-    # elif b*b - 4*a*c==0:
-        # return -b/(2*a)
-    # else:
-        # return (-b - math.sqrt(b*b - 4*a*c))/(2*a),(-b + math.sqrt(b*b - 4*a*c))/(2*a)
+#b*b-4*a*c; // 计算根的判别式
+import math
+def quadratic(a,b,c):
+    if a==0:
+        print('1')
+        return -c/b
+    elif b*b - 4*a*c<0:# 无实数解
+        print('2')
+        return None
+    elif b*b - 4*a*c==0:#有二个相等的实数解
+        print('3')
+        return -b/(2*a)
+    else:
+        print('4')
+        return (-b - math.sqrt(b*b - 4*a*c))/(2*a),(-b + math.sqrt(b*b - 4*a*c))/(2*a)#有二个不相等的实数解
 
-# a=float(input('input a:'))
-# b=float(input('input b:'))
-# c=float(input('input c:'))
+a=float(input('input a:'))
+b=float(input('input b:'))
+c=float(input('input c:'))
 
-# print(quadratic(a,b,c))
+print(quadratic(a,b,c))
 
 
 
