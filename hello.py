@@ -456,3 +456,19 @@
 # #什么都不写就复制一个list
 # print(L[:])
 #在很多编程语言中，针对字符串提供了很多各种截取函数（例如，substring），其实目的就是对字符串切片。Python没有针对字符串的截取函数，只需要切片一个操作就可以完成，非常简单。
+#***************************迭代***************************
+# d={"a":1,"b":2,"c":3}
+# for key in d:
+	# print(key)
+# for key in 'ABCD':
+	# print(key)
+#判断是否可以迭代
+# from collections import Iterable
+# print(isinstance('abc',Iterable))
+# print(isinstance(123,Iterable))
+# #如果要对list实现类似Java那样的下标循环怎么办？Python内置的enumerate函数可以把一个list变成索引-元素对，这样就可以在for循环中同时迭代索引和元素本身：
+# for i,value in enumerate(['a','b','c','d']):
+		# print(i,value)
+# #上面的for循环里，同时引用了两个变量，在Python里是很常见的，比如下面的代码：
+# for x,y in [(1,2),(3,4),(5,6)]:
+	# print(x,y)
