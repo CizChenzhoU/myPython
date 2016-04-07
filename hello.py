@@ -54,7 +54,7 @@
 # classmates[1]='Sarah'
 # print(classmates)
 
-# #二维数组
+# ***************************#二维数组***************************
 # s=['python','java',['asp','php'],'scheme']
 # print(len(s))
 # #另一种写法
@@ -185,7 +185,7 @@
 # print(hex(n2))
 
 
-#定义函数
+#***************************定义函数***************************
 # def my_abs(x):
     # if x>=0:
         # return x
@@ -238,7 +238,7 @@
 # print(quadratic(a,b,c))
 
 
-#函数的参数
+#***************************函数的参数***************************
 #一个计算x2的函数：
 
 # def power(x):
@@ -296,6 +296,78 @@
 #*number表示把nums这个list的所有元素作为可变参数传进去。这种写法相当有用，而且很常见
 # print(calc(*number))
 #关键字参数
+# def person(name,age,**kw):
+   # print('name',name,'age',age,kw);
+
+# person('lily','12');
+# person('lisa',12,city='beijing')
+#关键字参数有什么用？它可以扩展函数的功能。
+# extra = {'city':'beijing','job':'Engineer'}
+# person('lisa',12,job=extra['job'])
+#**extra表示把extra这个dict的所有key-value用关键字参数传入到函数的**kw参数，kw将获得一个dict，注意kw获得的dict是extra的一份拷贝，对kw的改动不会影响到函数外的extra。
+# person('lisa',12,**extra)
+#命名关键字参数
+#对于关键字参数，函数的调用者可以传入任意不受限制的关键字参数。至于到底传入了哪些，就需要在函数内部通过kw检查。
+# def persion(name,age,**kw):
+    # if 'city' in kw:
+        # #有city参数
+        # pass
+    # if 'job' in kw:
+        # #有job参数
+        # pass
+    # print('name',name,'age',age,kw)
+# extra = {'city':'beijing','job':'Engineer'}
+# #但是调用者仍可以传入不受限制的关键字参数：
+# persion('lisa',12,city='beijing',addr='chaoyang',zipCode='12345')
+#如果要限制关键字参数的名字，就可以用命名关键字参数，例如，只接收city和job作为关键字参数。这种方式定义的函数如下：
+#和关键字参数**kw不同，命名关键字参数需要一个特殊分隔符*，*后面的参数被视为命名关键字参数。
+# def persion(name,age,*,city,job):
+ # print(name,age,city,job)
+# #命名关键字参数必须传入参数名，这和位置参数不同。如果没有传入参数名，调用将报错：
+# persion('lisa',12,city='beijing',job='Engineer')
+#命名关键字参数可以有缺省值，从而简化调用
+# def persion(name,age,*,city='chengdu',job):
+    # print(name,age,city,job)
+# persion('lisa',12,job='Engineer')
+# persion('lisa',12,city='beijing',job='Engineer')
+
+#参数组合
+#在Python中定义函数，可以用必选参数、默认参数、可变参数、关键字参数和命名关键字参数，这5种参数都可以组合使用，
+#除了可变参数无法和命名关键字参数混合。但是请注意，参数定义的顺序必须是：必选参数、默认参数、可变参数/命名关键字参数和关键字参数。
+# def f1(a, b, c=0, *args, **kw):
+    # print('a =', a, 'b =', b, 'c =', c, 'args =', args, 'kw =', kw)
+
+# def f2(a, b, c=0, *, d, **kw):
+    # print('a =', a, 'b =', b, 'c =', c, 'd =', d, 'kw =', kw)
+
+# f1(1,2,*(1,2,3),**{'name':'lisa','age':12})
+# args = (1, 2, 3)
+# kw = {'d': 99, 'x': '#','name':'lisa','age':12}
+# f2(*args,**kw)
+# 小结
+
+# Python的函数具有非常灵活的参数形态，既可以实现简单的调用，又可以传入非常复杂的参数。
+
+# 默认参数一定要用不可变对象，如果是可变对象，程序运行时会有逻辑错误！
+
+# 要注意定义可变参数和关键字参数的语法：
+
+# *args是可变参数，args接收的是一个tuple；
+
+# **kw是关键字参数，kw接收的是一个dict。
+
+# 以及调用函数时如何传入可变参数和关键字参数的语法：
+
+# 可变参数既可以直接传入：func(1, 2, 3)，又可以先组装list或tuple，再通过*args传入：func(*(1, 2, 3))；
+
+# 关键字参数既可以直接传入：func(a=1, b=2)，又可以先组装dict，再通过**kw传入：func(**{'a': 1, 'b': 2})。
+
+# 使用*args和**kw是Python的习惯写法，当然也可以用其他参数名，但最好使用习惯用法。
+
+# 命名的关键字参数是为了限制调用者可以传入的参数名，同时可以提供默认值。
+
+# 定义命名的关键字参数不要忘了写分隔符*，否则定义的将是位置参数。
 
 
+#***************************递归参数***************************
 
