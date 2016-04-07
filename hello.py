@@ -472,3 +472,34 @@
 # #上面的for循环里，同时引用了两个变量，在Python里是很常见的，比如下面的代码：
 # for x,y in [(1,2),(3,4),(5,6)]:
 	# print(x,y)
+#***************************列表生成式***************************
+#列表生成式即List Comprehensions，是Python内置的非常简单却强大的可以用来创建list的生成式。
+#(list(range(1,11)))
+#如果要生成[1x1, 2x2, 3x3, ..., 10x10]怎么做？方法一是循环：
+# L=[]
+# for x in range(0,11):
+	# L.append(x*x)
+
+# print(L)
+#循环太繁琐，如果用列表的话一句代码
+# print([x*x for x in range(1,11)])
+# for循环后面还可以加上if判断，这样我们就可以筛选出仅偶数的平方：
+# print([x*x for x in range(1,11) if x%2 ==0])
+#还可以使用两层循环，可以生成全排列：
+# print([m+n for m in "ABC" for n in 'XYZ'])
+# import os # 导入os模块，模块的概念后面讲到  [d for d in os.listdir('.')] 
+# print(d for d in os.listdir('.'))
+# 循环其实可以同时使用两个甚至多个变量，比如dict的items()可以同时迭代key和value：
+# d={"a":"1","b":"2","c":"3","d":"4"}
+# for key,value in d.items():
+	# print(key,value)
+#列表生成式也可以使用两个变量来生成list：
+# print([key+'='+value for key,value in d.items()])
+#把列表中的字符串变为小写
+# L = ['Hello', 'World', 'IBM', 'Apple']
+# print([s.lower() for s in L])
+# 练习
+
+# 如果list中既包含字符串，又包含整数，由于非字符串类型没有lower()方法，所以列表生成式会报错：
+# L = ['Hello', 'World', 18, 'Apple', None]
+# print([s.lower() for s in L if isinstance(s,str) == True])
