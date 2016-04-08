@@ -588,7 +588,7 @@
 		# b = [1] + [b[i] + b[i + 1] for i in range(len(b) - 1)] + [1]
 		# n += 1
 
-
+#第五种写法
 # for x in rectangle(10):
 	# print(x)
 # def triangles():
@@ -603,3 +603,26 @@
         # L.append(1)
 # for i in triangles():
 	# print(i)
+	
+#***************************迭代器***************************
+#可以使用isinstance()判断一个对象是否是Iterable对象
+# from collections import Iterable
+# print(isinstance([],Iterable)) #True
+# print(isinstance({},Iterable)) #True
+# print(isinstance('cba',Iterable)) #True
+# print(isinstance((x for x in range(10)),Iterable)) #True
+# print(isinstance(100,Iterable)) #False
+#而生成器不但可以作用于for循环，还可以被next()函数不断调用并返回下一个值，
+#直到最后抛出StopIteration错误表示无法继续返回下一个值了。
+#可以被next()函数调用并不断返回下一个值得对象称为迭代器：Iterator
+#可以使用isinstance()判断一个对象是否是Iterator对象
+# from collections import Iterator
+# print(isinstance((x for x in range(10)),Iterator))#True
+# print(isinstance([],Iterator))#Flase
+# print(isinstance({},Iterator))#Flase
+# print(isinstance('abc',Iterator))#Flase
+#生成器都是Iterator对象，但list、dict、str虽然是Iterable,确不是Iterator
+#把list、dict、str等Iterable变成Iterator可以使用iter()函数
+# print(isinstance(iter([]),Iterator))#True
+# print(isinstance(iter('cba'),Iterator))#True
+#***************************函数式编程***************************
