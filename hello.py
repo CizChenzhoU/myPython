@@ -503,3 +503,91 @@
 # 如果list中既包含字符串，又包含整数，由于非字符串类型没有lower()方法，所以列表生成式会报错：
 # L = ['Hello', 'World', 18, 'Apple', None]
 # print([s.lower() for s in L if isinstance(s,str) == True])
+#***************************生成器***************************
+# g = (x * x for x in range(10))
+# for b in g:
+	# print(b)
+# generator非常强大。如果推算的算法比较复杂，用类似列表生成式的for循环无法实现的时候，还可以用函数来实现。
+
+# 比如，著名的斐波拉契数列（Fibonacci），除第一个和第二个数外，任意一个数都可由前两个数相加得到：
+
+# 1, 1, 2, 3, 5, 8, 13, 21, 34, ...
+
+# def fib(max):
+	# n,a,b=0,0,1
+	# while n<max:
+		# print(b)
+		# a,b=b,a+b
+		# n=n+1
+	# return 'done'
+# fib(6);
+
+# 仔细观察，可以看出，fib函数实际上是定义了斐波拉契数列的推算规则，可以从第一个元素开始，推算出后续任意的元素，这种逻辑其实非常类似generator。
+
+# 也就是说，上面的函数和generator仅一步之遥。要把fib函数变成generator，只需要把print(b)改为yield b就可以了：
+# def fib(max):
+	# n,a,b=0,0,1
+	# while n<max:
+		# yield(b)
+		# a,b=b,a+b
+		# n=n+1
+	# return 'done'
+# for b in fib(6):
+	# print(b)
+# 练习
+
+# 杨辉三角定义如下：
+
+          # 1
+        # 1   1
+      # 1   2   1
+    # 1   3   3   1
+  # 1   4   6   4   1
+# 1   5   10  10  5   1
+
+# N = [1]
+# def fib(N):
+	# while True:
+		# yield(N)
+		# N.append(0)
+		# N = [N[i-1] + N[i] for i in range(len(N))]
+# for x in fib(N):
+	# print(x)
+	
+#第二种写法
+# NUM = 6
+
+# def printLine(lineList):
+    # lineList = [str(tmpNum) for tmpNum in lineList]
+    # print("%s%s" % (" " * (NUM - len(lineList)), " ".join(lineList)))
+
+# for i in range(NUM): #获得一个['1','2','3'.....]
+    # if i < 2:
+        # yhList = [1] * (i + 1)#解析num每个值，取得小于2的两个值（0，1），分别以[1],[1][1]格式输出
+    # else:
+       # yhList[1:-1] = [(tmpNum + yhList[j]) for j, tmpNum in enumerate(yhList[1:])] #enumerate 函数用于遍历序列中的元素以及它们的下标：yhList[1:-1]:不要第一个和最后一个.。每列错位相加例如第一个位加第二位、第二位加第三位
+    # printLine(yhList)
+
+#第三种写法
+# def ytran(max):
+	# n=0
+	# a=[1]
+	# while n<max:
+			# print(a)
+			# b=a+[0]
+			# c=[0]+a
+			# a=[b[i]+c[i] for i in range(len(b))]
+			# n+=1
+# ytran(6)
+
+#第四种写法
+def rectangle(m):
+	n, b = 0, [1]
+	while n < m:
+		yield(b)
+		b = [1] + [b[i] + b[i + 1] for i in range(len(b) - 1)] + [1]
+		n += 1
+
+
+for x in rectangle(10):
+	print(x)
