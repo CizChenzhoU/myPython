@@ -581,13 +581,25 @@
 # ytran(6)
 
 #第四种写法
-def rectangle(m):
-	n, b = 0, [1]
-	while n < m:
-		yield(b)
-		b = [1] + [b[i] + b[i + 1] for i in range(len(b) - 1)] + [1]
-		n += 1
+# def rectangle(m):
+	# n, b = 0, [1]
+	# while n < m:
+		# yield(b)
+		# b = [1] + [b[i] + b[i + 1] for i in range(len(b) - 1)] + [1]
+		# n += 1
 
 
-for x in rectangle(10):
-	print(x)
+# for x in rectangle(10):
+	# print(x)
+# def triangles():
+    # L = [1]
+    # while True:
+        # yield(L)
+        # i = 1
+        # T = L[:]
+        # while i < len(L):
+            # L[i] = T[i] + T[i-1]
+            # i += 1
+        # L.append(1)
+# for i in triangles():
+	# print(i)
