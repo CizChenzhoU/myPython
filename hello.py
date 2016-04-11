@@ -645,3 +645,147 @@
 #f=abs
 #f(x)+f(y)=abs(-5)+abs(6)=11
 #编写高阶函数，就是让函数的参数能够接收别的参数
+#map/reduce
+# def f(x):
+	# return x*x
+# r=map(f,[1,2,3,4,5,6,7,8,9])
+# print(r);
+# print(list(r))
+# mqp()传入的第一个参数是f，即函数对象本身。由于结果r是一个Iterator(迭代器)
+#Iterator是惰性序列，因此通过list()函数让它把整个序列都计算出来并返回一个list
+#你可能回想，不需要map函数，写一个循环，也可以计算出结果：
+# L=[]
+# def f(x):
+	# return x*x
+# for n in [1,2,3,4,5,6,7,8,9]:
+	# L.append(f(n))
+# print(L)
+#这样写也可以，但是你很难一眼明白“把f(x)作用在list的每一个元素并把结果生成一个新的list”
+#而map作为高阶函数，事实上它把运算规则抽象了，因此，我们不但可以计算简单的f(x)=x2
+#还可以计算任意复制的函数，例如，把list所有数字转为字符串：
+# print(list(map(str,[1,2,3,4,5,6,7,8,9])))
+#reduce的用法
+#reduce把一个函数作用在一个序列[x1,x2,x3,....]上，这个函数必须接收两个参数。
+#求和
+# from functools import reduce
+# def add(x,y):
+	# return x+y
+# print(reduce(add,[1,3,5,7,9]))
+
+#将序列[1,3,5,7,9]变换成整数，reduce就可以派上用场
+# from functools import reduce
+# def fn(x,y):
+	# return x*10+y
+
+# print(reduce(fn,[1,3,5,7,8]))
+# 把str转换为int的函数：
+# from functools import reduce
+# def fn(x,y):
+	# return x*10+y
+
+# def char2num(s):
+	# return {'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9}[s]#dict[key]
+
+# print(reduce(fn,map(char2num,'13579')))
+
+# 练习
+
+# 利用map()函数，把用户输入的不规范的英文名字，变为首字母大写，其他小写的规范名字。
+# 输入：['adam', 'LISA', 'barT']，输出：['Adam', 'Lisa', 'Bart']：
+
+# def normalize(name):
+	# return name.capitalize() #首字母大写
+# L1 =['admin','LISA','barT']  
+# L2 =list(map(normalize,L1)) 
+# print(L2)
+#Python提供的sum()函数可以接受一个list并求和，
+#请编写一个prod()函数，可以接受一个list并利用reduce()求积：
+# from functools import reduce
+# def times(x,y):
+	# return x*y
+# print(reduce(times,[3,5,7,9]))
+
+#另一种写法
+# from functools import reduce
+# def prod(L):
+	# return reduce(lambda x,y:x*y,L)
+# print('3*5*7*9=',prod([3,5,7,9]))
+
+#***************************Python内建的filter()函数用于过滤序列***************************
+#在一个list中，删除偶数，只保留奇数。
+# def is_odd(n):
+	# return n%2==1
+# print(list(filter(is_odd,[1,2,4,5,6,9,10,15])))
+#把一个序列中的空字符串删掉
+# def not_empty(s):
+	# return s and s.strip()#strip去除前后空格
+
+#print(list(filter(not_empty,['A','','B',None,'C',''])))
+
+#用filter求素数
+#计算素数的一个方法是埃氏筛法，它的算法理解起来非常简单
+#首先，列出从2开始的所有自然数，构造一个序列
+#2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, ...
+#取序列的第一个数2，它一定是素数，然后用2把序列的2的倍数筛掉
+#3, #4, 5, #6, 7, #8, 9, #10, 11, #12, 13, #14, 15, #16, 17, #18, 19, #20, ...
+#取新序列的第一个数3，它一定是素数，然后用3把序列的倍数筛掉:
+#5, #6, 7, #8, #9, #10, 11,#12, 13, #14, #15, #16, 17, #18, 19, #20, ...
+#取新序列的第一个数5，然后用5把序列的5的倍数筛掉：
+#7, #8, #9, #10, 11, #12, 13, #14, #15, #16, 17, #18, 19, #20, ...
+#不断筛选下去，就可以得到所有的素数
+#用python来实现这个算法，可以先构造一个从3开始的奇数序列
+# def _odd_iter():
+	# n=1
+	# while True:
+		# n=n+2
+		# yield n
+# #注意这是一个生成器，并且是一个无限序列
+# #然后定义一个筛选函数
+# def _not_divisibie(n):
+	# return lambda x:x%n>0
+# #最后，定义一个生成器，不断返回下一个素数
+# def primes():
+	# yield 2
+	# it=_odd_iter()#初始序列
+	# while True:
+		# n=next(it)#返回序列的第一个数
+		# yield n
+		# it=filter(_not_divisibie(n),it)#构造新序列
+# #这个生成器先返回第一素数2，然后利用filter()不断产生筛选后的新的序列。
+# #由于primes（）也是一个无限序列，所以调用时需要设置一个退出循环的条件
+
+# #打印1000以内的素数
+# for n in primes():
+	# if n<1000:
+		# print(n)
+	# else:
+		# break
+
+# primes()
+# 练习
+
+# 回数是指从左向右读和从右向左读都是一样的数，
+# 例如12321，909。请利用filter()滤掉非回数：
+# def is_palindrome(n):
+	# s=str(n)
+	# if len(s)==1:
+		# return True
+	# else:
+		# lst=[c for c in s]
+		# new_lst=[]
+		# for x in range(len(lst)):
+			# new_lst.append(lst[len(lst)-x-1])
+		# if(''.join(new_lst))==s:
+			# return True
+		# else:
+			# return False
+
+# output=filter(is_palindrome,range(1,1000))
+# print(list(output))
+
+#另一种解法
+# def is_palindrome(n):
+	# return str(n)==str(n)[::-1]#切片[::-1]是将列表或字符倒过来
+
+# output =filter(is_palindrome,range(1,1000))
+# print(list(output))
