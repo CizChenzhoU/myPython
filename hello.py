@@ -789,3 +789,38 @@
 
 # output =filter(is_palindrome,range(1,1000))
 # print(list(output))
+
+#***************************sorted***************************
+
+# print(sorted([36,5,-12,9,-21]))
+#此外，sorted()函数也是一个高阶函数，它还可以接收一个key函数来实现自定义的排序，
+#例如按绝对值进行排序
+
+# print(sorted([36,5,-12,9,-21],key=abs))
+
+# #字符排列
+# print(sorted(['bob','about','Zoo','Credit']))
+# #默认情况下，对字符串排序。按照ASCII的大小比较，由于‘Z’<'a'，结果大小字母Z就会排在小写字母a前面
+# #如果需要排序忽略大小写，按字母应该怎么处理呢？
+# #再传入一个参数
+# print(sorted(['bob','about','Zoo','Credit'],key=str.lower))# lower() 方法转换字符串中所有大写字符为小写。
+# #要进行反向排序，不必改动key函数，可以传入第三个参数recerse=True:
+# print(sorted(['bob','about','Zoo','Credit'],key=str.lower,reverse=True))
+
+# 练习
+
+# 假设我们用一组tuple表示学生名字和成绩：
+
+# # L = [('Bob', 75), ('Adam', 92), ('Bart', 66), ('Lisa', 88)]
+# # 请用sorted()对上述列表分别按名字排序：
+# L = [('Bob', 75), ('Adam', 92), ('Bart', 66), ('Lisa', 88)]
+
+# def by_name(t):
+	# return t[0].lower()
+
+# print(sorted(L,key=by_name))
+
+# #再按成绩从高到低排序：
+# def by_int(t):
+	# return t[1]
+# print(sorted(L,key=by_int,reverse=True))
