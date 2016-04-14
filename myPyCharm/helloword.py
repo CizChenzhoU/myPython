@@ -19,16 +19,29 @@
 # 如果需要打印一个学生的成绩，首先需要创建这个学生对应的对象。然后给对象发一个print_score的消息
 # 让对象自己把自己的属性打印出来
 # __init__ 初始化实例的值.这些值一般要供其他方法调用,只初始化值,不要返回值(就是别用return)
-class student(object):
-    def __init__(self, name, score):
-        self.name = name
-        self.score = score
-    def print_score(self):
-        print('%s: %s' % (self.name, self.score))
-# 给对象发消息实际上就是调用对象对应的关联函数，我们称之为对象的方法。面向对象的程序写出来就像这样
-bart = student('bart Simpson', 99)
-lisa = student('lisa Simpson', 85)
-bart.print_score()
-lisa.print_score()
+# 注意到__init__方法的第一个参数永远是self，表示创建的实例本身
+# class student(object):
+#     def __init__(self, name, score):
+#         self.name = name
+#         self.score = score
+# # 封装数据
+#     def print_score(self):
+#         print('%s: %s' % (self.name, self.score))
+# # 给对象发消息实际上就是调用对象对应的关联函数，我们称之为对象的方法。面向对象的程序写出来就像这样
+# bart = student('bart Simpson', 99)
+# lisa = student('lisa Simpson', 85)
+# bart.print_score()
+# lisa.print_score()
+
+# ************************类和实例************************
+# class后面紧接着是类名，类名一般首字母大写
+# 然后是object，表示该类从哪里继承下来，如果没有合适的继承类，就使用object类，这是所有类最终都会继承的类。
+class Student(object):
+    pass
+# 定义好Student类，就可以创建Student实例了，创建实例是通过类名加（）实现的
+bart = Student()
+# 可以自由的给实例变量绑定属性
+bart.name = 'bart Simpson'
+print(bart.name)
 
 
