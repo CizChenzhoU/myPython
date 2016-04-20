@@ -155,8 +155,22 @@
 # 仍然可以通过_Student__name来访问__name变量 ：Bart._Student__name
 # 但是强烈不建议如此处理，因为不同版本的Python解释器可能会把__name改成不同的变量名
 
-print('hello word')
+# # ************************获取对象************************
+# 使用type 判断对象类型
+# print(type(124))  # 输出<class 'int'>
+# print(type('str'))  # 输出<class 'str'>
+# print(type(None))  # 输出<class 'NoneType'>
 
-
-
+# 但是type()函数返回的是什么类型？它返回对应的Class类型。如果我们要在if语句中判断，
+# 就需要比较两个变量的type类型是否相同
+# print(type(123) == type(456))
+# print(type(123) == int)
+# print(type('str') == type('abc'))
+# print(type('SSS') == str)
+# print(type('str') == type(123))
+# 使用dir()
+# 如果要获得一个对象的所以属性和方法，可以使用dir()函数，它返回一个保护字符串的list
+print(dir('abc'))
+print('--------------------')
+print(dir(123))
 
