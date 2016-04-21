@@ -221,7 +221,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Bat.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Student" />
   </component>
   <component name="RunManager" selected="Python.Bat">
     <configuration default="true" type="DjangoTestsConfigurationType" factoryName="Django tests">
