@@ -170,7 +170,7 @@
 # print(type('str') == type(123))
 # 使用dir()
 # 如果要获得一个对象的所以属性和方法，可以使用dir()函数，它返回一个保护字符串的list
-print(dir('abc'))
-print('--------------------')
-print(dir(123))
+# print(dir('abc'))
+# print('--------------------')
+# print(dir(123))
 

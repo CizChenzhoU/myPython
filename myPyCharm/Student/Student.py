@@ -95,16 +95,16 @@
 # 注意到这个神奇的@property,我们在对实例属性操作的时候，就知道该属性很可能不是直接暴露的
 # 而是通过getter和setter方法来实现的
 # 还可以定义只读属性，只定义getter方法，不定义setter方法就是一个只读属性
-class Student(object):
-    @property
-    def birth(self):
-        return self._birth
-    @birth.setter
-    def birth(self,value):
-        self._birth = value
-    @property
-    def age(self):
-        return 2015 - self._birth
+# class Student(object):
+#     @property
+#     def birth(self):
+#         return self._birth
+#     @birth.setter
+#     def birth(self,value):
+#         self._birth = value
+#     @property
+#     def age(self):
+#         return 2015 - self._birth
 
 # 上面的birth是可读写属性，而age就是一个只读属性，因为age可以根据birth和当前时间计算出来
 
@@ -122,39 +122,39 @@ class Student(object):
 # s.height = 768
 # print(s.resolution)
 # assert s.resolution == 786432, '1024 * 768 = %d ?' % s.resolution
-class Screen(object):
-    @property
-    def width(self):
-        return self._width
-
-    @property
-    def height(self):
-        return self._height
-
-    @width.setter
-    def width(self, value):
-        if not isinstance(value, int):
-            raise ValueError('width must be an integer!')
-        if value < 0:
-            raise ValueError('width must be >0!')
-        self._width = value
-
-    @height.setter
-    def height(self, value):
-        if not isinstance(value, int):
-            raise ValueError('height must be an integer!')
-        if value < 0:
-            raise ValueError('height must be >0!')
-        self._height = value
-
-    @property
-    def resolution(self):
-        return self._width * self.height
-
-
-s = Screen()
-s.width = 1024
-s.height = 768
-
-print(s.width, s.height)
-print(s.resolution)
+# class Screen(object):
+#     @property
+#     def width(self):
+#         return self._width
+#
+#     @property
+#     def height(self):
+#         return self._height
+#
+#     @width.setter
+#     def width(self, value):
+#         if not isinstance(value, int):
+#             raise ValueError('width must be an integer!')
+#         if value < 0:
+#             raise ValueError('width must be >0!')
+#         self._width = value
+#
+#     @height.setter
+#     def height(self, value):
+#         if not isinstance(value, int):
+#             raise ValueError('height must be an integer!')
+#         if value < 0:
+#             raise ValueError('height must be >0!')
+#         self._height = value
+#
+#     @property
+#     def resolution(self):
+#         return self._width * self.height
+#
+#
+# s = Screen()
+# s.width = 1024
+# s.height = 768
+#
+# print(s.width, s.height)
+# print(s.resolution)
