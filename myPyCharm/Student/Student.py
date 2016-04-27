@@ -640,7 +640,72 @@
 # f = BytesIO(b'\xe4\xb8\xad\xe6\x96\x87')
 # f.read()
 
+# **************************操作文件和目录*********************************
+# Python内置的os模块也可以直接调用操作系统提供的接口函数
+import os
 
+# print(os.name)  # 输出nt 注：posix,说明系统是Linux、Unix或者是nt,就是Window系统
 
+# 获取详细的系统信息
+# os.uname() 注意uname()函数在Window上不提供，也就是说，os模块的某些函数是跟操作系统相关的。
+
+# 环境变量
+# 查看环境变量
+# os.environ
+# 获取某个环境变量的值
+# print(os.environ.get('PATH'))
+# print(os.environ.get('x', 'default'))
+
+# 操作文件和目录
+# 操作文件和目录的函数一部分放在os模块中，一部分放在os.path模块中
+# 这一点要注意一下。查看、创建和删除目录可以这么调用
+
+# 查看当前目录的绝对路径：
+# print(os.path.abspath('.'))
+# 在某个目录下创建一个新目录，首先把新目录的完整路径表示出来。
+#print(os.path.join('E:\myPython\myPyCharm\Student', 'testdir'))
+# 然后创建一个目录
+#os.mkdir('E:\myPython\myPyCharm\Student/testdir')
+# 然后删除一个目录
+# os.rmdir('E:\myPython\myPyCharm\Student/testdir')
+# 把两个路径合成一个时，不要直接拼字符串，而要通过os.path.join()函数
+# 同样的道理，要拆分路径时，也不要直接去拆字符串，而要通过os.path.split()函数
+
+# # os.path.splitext()可以直接让你得到文件扩展名，很多时候非常方便：
+# print(os.path.splitext('E:/myPython/myPyCharm/Student/test.txt'))
+# # 文件重命名
+# # os.rename('E:/myPython/myPyCharm/Student/test.txt', 'E:/myPython/myPyCharm/Student/text.py')
+# # 删除文件
+# os.remove('E:/myPython/myPyCharm/Student/text.py')
+
+# 最后看看如何利用Python的特性来过滤文件。比如我们要列出当前目录下的所有目录，只需要一行代码：
+# print([x for x in os.listdir('.') if os.path.isdir(x)])
+# 要列出所有的.py文件，也只需一行代码：
+# print([x for x in os.listdir('.') if os.path.isfile(x) and os.path.splitext(x)[1]=='.py'])
+
+# 小结
+# Python的os模块封装了操作系统的目录和文件操作。要注意这些函数有的在os模块中，有的在os.path模块中
+
+# 练习
+# 利用os模块编写一个能实现dir -1的输出程序
+# 编写一个程序，能在当前目录已经当前目录的所以子目录下查找文件名包含指定字符串的文件，并打印出相对路径。
+
+# str:查找的字符串
+# path:路径，默认为当前路径
+# the_path:相对路径
+# def what_file(str, path='.', the_path='\\'):
+#     for p in os.listdir(path):
+#         # 当前文件的全路径
+#         current_file = os.path.join(path, p)
+#         # 是否存在str字符串
+#         if str in p and os.path.isfile(current_file):
+#             print(p, os.path.join(the_path, p))  # 输出相对路径
+#         # 当前路径是否一个文件夹
+#         if os.path.isdir(current_file):
+#             # 是文件夹递归，并将相对路径加上p
+#             what_file(str, current_file, os.path.join(the_path, p))
+#
+# # 调用
+# what_file("py", "E:/myPython/myPyCharm")
 
 
