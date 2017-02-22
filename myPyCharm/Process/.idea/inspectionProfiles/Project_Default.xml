@@ -7,6 +7,7 @@
           <option value="Process.list" />
           <option value="Process.len" />
           <option value="Process.int" />
+          <option value="Web开发.server.hello" />
         </list>
       </option>
     </inspection_tool>
